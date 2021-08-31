@@ -4,6 +4,7 @@ import math
 import os
 from random import randrange
 from keep_me_alive import keep_alive
+from Scientific_Calculator import scientific_calc
 
 client = discord.Client()
 
@@ -52,9 +53,17 @@ hurt = ["poop",
         "low life",
         "shit",
         "crap",
+        "loser"
+        "u suc"
         ]
 bruv = ["no u", "bruv", "dude no", "lol no", "yo fam chill he'll come in a bit"]
 
+doge_gifs = (
+    "https://tenor.com/view/megan-interesting-gif-14176736",
+    "https://tenor.com/view/yes-nice-nod-thumgs-up-gif-12292330",
+    "https://tenor.com/view/confused-nope-gif-13134027",
+    "https://tenor.com/view/calculating-puzzled-math-confused-confused-look-gif-14677181"
+)
 
 emojis = {
     ":yubullyme:":"<:yubullyme_:823182635543167016> ",
@@ -178,13 +187,7 @@ async def on_message(message):
     if "casino" in msg:
         await message.channel.send("let's play the doge casino bois, I and you will select a number between 1 and 10, ")
 
-    if "sqrt" in msg:
-        a = msg.split("(")
-        b = a[1]
-        c = b.split(")")
-        d = int(c[0])
-        e = sqrt(d)
-        await message.channel.send(e)
+
     if "!" in msg:
         if "!poll" in msg:
             s = msg.split()
@@ -194,25 +197,24 @@ async def on_message(message):
             if a == p:
                 for emojis in poll_emojis:
                     await message.add_reaction(emojis)
-        else:
-            a = msg.split("!")
-            b = int(a[0])
-            c = factorial(b)
-            await message.channel.send(c)
+
+
     if "sum" in msg:
-        if ",w" not in msg:
-            s = msg.split()
-            a = int(s[2])
-            b = int(s[4])
-            c = sum(a, b)
-            await message.channel.send(c)
+        s = msg.split()
+        a = int(s[2])
+        b = int(s[4])
+        c = sum(a, b)
+        await message.channel.send(c)
+
+
     if "random" in msg:
       n = [1,2,3,4,5,6,7,8,9,0]
       await message.channel.send(random.choice(n))
+
     
-
-
-
+    if "calculate" in msg:
+        scientific_calc()
+        
 keep_alive()
 token = os.environ['key']
 client.run(token)
