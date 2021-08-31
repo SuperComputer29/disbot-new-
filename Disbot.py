@@ -53,6 +53,7 @@ hurt = ["poop",
         "shit",
         "crap",
         "loser"
+        "u suc"
         ]
 bruv = ["no u", "bruv", "dude no", "lol no", "yo fam chill he'll come in a bit"]
 
