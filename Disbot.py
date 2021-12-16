@@ -2,11 +2,10 @@ import discord
 import random
 import os
 import math
-from random import randrange
 from keep_me_alive import keep_alive
 from Scientific_calculator import Scientific_calc as sc
 from Messages import Responses as r
-# Test change
+
 client = discord.Client()
 
 
@@ -76,7 +75,6 @@ async def on_message(message):
     if "calculate" in msg:
         a = msg.split()
         a.pop(0)
-        print(a)
         n = len(a)
         def strAdd(x):
             if x == 1:
