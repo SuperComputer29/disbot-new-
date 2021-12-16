@@ -6,7 +6,7 @@ from random import randrange
 from keep_me_alive import keep_alive
 from Scientific_Calculator import scientific_calc
 from Messages import Responses as r
-
+# Test change
 client = discord.Client()
 
 def sqrt(n):
