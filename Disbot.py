@@ -60,7 +60,7 @@ async def on_message(message):
         if "are you okay" in msg:
             await message.channel.send("Yes master, I am fine")
         elif "source code" in msg:
-            await message.channel.send("https://github.com/SuperComputer29/Disbot/blob/main/Disbot.py")
+            await message.channel.send("https://github.com/SuperComputer29/disbot-new-")
         else:
             for word in r.Bot_greetings_1:
                 if word in msg:
