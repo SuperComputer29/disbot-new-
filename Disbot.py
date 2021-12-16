@@ -4,35 +4,18 @@ import math
 import os
 from random import randrange
 from keep_me_alive import keep_alive
-from Scientific_Calculator import scientific_calc
+from Scientific_calculator import Scientific_calc as sc
 from Messages import Responses as r
 # Test change
 client = discord.Client()
-
-def sqrt(n):
-    a = randrange(10)
-    for i in range(500):
-        a = (n + a ** 2) / (2 * a)
-    return a
-
-
-def factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n - 1)
-
-
-def sum(a, b):
-    if a > b:
-        return 0
-    else:
-        return b + sum(a, b - 1)
 
 
 CommonOperations = ["+", "-", "*", "/"]
 rad = math.pi / 180
 
+def scientific_calc(query):
+        answer = sc.scientific_calc(query)
+        return answer
 
 @client.event
 async def on_ready():
@@ -85,33 +68,15 @@ async def on_message(message):
                     await message.channel.send(random.choice(r.Doge_greetings))
 
 
-    if "!" in msg:
-        if "!poll" in msg:
-            s = msg.split()
-            a = s[0]
-            p = "!poll"
-            poll_emojis = ['✅','❌']            
-            if a == p:
-                for emojis in poll_emojis:
-                    await message.add_reaction(emojis)
-
-
-    if "sum" in msg:
-        s = msg.split()
-        a = int(s[2])
-        b = int(s[4])
-        c = sum(a, b)
-        await message.channel.send(c)
-
-
     if "random" in msg:
       n = [1,2,3,4,5,6,7,8,9,0]
       await message.channel.send(random.choice(n))
 
     
     if "calculate" in msg:
-        scientific_calc()
-        
+        answer = scientific_calc(msg)
+        await message.channel.send(answer)
+       
 keep_alive()
 token = os.environ['key']
 client.run(token)
