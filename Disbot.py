@@ -83,8 +83,6 @@ async def on_message(message):
             for word in r.Bot_greetings_1:
                 if word in msg:
                     await message.channel.send(random.choice(r.Doge_greetings))
-    if "casino" in msg:
-        await message.channel.send("let's play the doge casino bois, I and you will select a number between 1 and 10, ")
 
 
     if "!" in msg:
