@@ -1,7 +1,7 @@
 import discord
 import random
-import math
 import os
+import math
 from random import randrange
 from keep_me_alive import keep_alive
 from Scientific_calculator import Scientific_calc as sc
@@ -74,7 +74,18 @@ async def on_message(message):
 
     
     if "calculate" in msg:
-        answer = scientific_calc(msg)
+        a = msg.split()
+        a.pop(0)
+        print(a)
+        n = len(a)
+        def strAdd(x):
+            if x == 1:
+                return str(a[0])
+            else:
+                return str(a[x-1]) + " " + str(strAdd(x-1))
+
+        user_input = strAdd(n)
+        answer = sc.scientific_calc(user_input)
         await message.channel.send(answer)
        
 keep_alive()
