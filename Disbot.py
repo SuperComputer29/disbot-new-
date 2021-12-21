@@ -2,7 +2,6 @@ import discord
 import random
 import os
 import math
-from random import randrange
 from keep_me_alive import keep_alive
 from someRandomFunctions.Scientific_calculator import Scientific_calc as sc
 from someRandomFunctions.Messages import Responses as r
@@ -63,7 +62,7 @@ async def on_message(message):
         if "are you okay" in msg:
             await message.channel.send("Yes master, I am fine")
         elif "source code" in msg:
-            await message.channel.send("https://github.com/SuperComputer29/Disbot/blob/main/Disbot.py")
+            await message.channel.send("https://github.com/SuperComputer29/disbot-new-")
         else:
             for word in r.Bot_greetings_1:
                 if word in msg:
@@ -78,7 +77,6 @@ async def on_message(message):
     if "calculate" in msg:
         a = msg.split()
         a.pop(0)
-        print(a)
         n = len(a)
         def strAdd(x):
             if x == 1:
@@ -93,12 +91,10 @@ async def on_message(message):
     if "inititate skeem" in msg:
         date = str(dG())
         current_t = t.localtime()
-        hour = t.strftime("%H", current_t)
         while True:
-            if hour == "14":
-                current_clock = t.strftime("%H%M", current_t)
-                if current_clock == "14:32":
-                    await message.channel.send(date)
+            current_clock = t.strftime("%H%M", current_t)
+            if current_clock == "10:30":
+                await message.channel.send(date)
 
 keep_alive()
 token = os.environ['key']
