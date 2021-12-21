@@ -4,8 +4,10 @@ import os
 import math
 from random import randrange
 from keep_me_alive import keep_alive
-from Scientific_calculator import Scientific_calc as sc
-from Messages import Responses as r
+from someRandomFunctions.Scientific_calculator import Scientific_calc as sc
+from someRandomFunctions.Messages import Responses as r
+from someRandomFunctions.datechainnotsus import dateGen as dG
+import time as t
 # Test change
 client = discord.Client()
 
@@ -87,7 +89,17 @@ async def on_message(message):
         user_input = strAdd(n)
         answer = sc.scientific_calc(user_input)
         await message.channel.send(answer)
-       
+    
+    if "inititate skeem" in msg:
+        date = str(dG())
+        current_t = t.localtime()
+        hour = t.strftime("%H", current_t)
+        while True:
+            if hour == "14":
+                current_clock = t.strftime("%H%M", current_t)
+                if current_clock == "14:32":
+                    await message.channel.send(date)
+
 keep_alive()
 token = os.environ['key']
 client.run(token)
