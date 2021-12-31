@@ -90,12 +90,12 @@ async def on_message(message):
     
     if "inititate skeem" in msg:
         date = dG()
-        current_t = t.localtime()
         while True:
+            current_t = t.localtime()
             current_clock = t.strftime("%H%M", current_t)
-            if current_clock == "11:18":
+            if current_clock == "2332":
                 await message.channel.send(date)
-
+                exit(0)
 keep_alive()
 token = os.environ['key']
 client.run(token)
