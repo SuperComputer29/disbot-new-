@@ -42,6 +42,4 @@ def dateGen():
             }
     month = months[str(month_n)]
     date = month + " " + str(day) + "," + " " + str(year)
-    print(current_clock)
-
-dateGen()
+    return date
