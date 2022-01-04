@@ -89,7 +89,8 @@ async def on_message(message):
         await message.channel.send(answer)
     
     if "inititate skeem" in msg:
-        time = msg[2]
+        a = msg.split()
+        time = a[2]
         date = dG()
         await message.channel.send(f"the time that you specified is {time} and the date today is {date}")
         while True:
