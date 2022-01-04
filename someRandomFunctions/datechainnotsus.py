@@ -24,8 +24,7 @@ def dateGen():
 
     year = str(year_l[0] + year_l[1] + year_l[2] + year_l[3])
     month_n = str(month_l[0] + month_l[1])
-    day = str(day_l[0] + day_l[1])
-
+    day_prev = str(day_l[0] + day_l[1])
     months = {
             "1":"January",
             "2":"February",
@@ -40,6 +39,24 @@ def dateGen():
             "11":"November",
             "12":"December"
             }
-    month = months[str(month_n)]
-    date = month + " " + str(day) + "," + " " + str(year)
-    return date
+    mon_list = list(map(int, month_n))
+    day_list = list(map(int, day_prev))
+    if mon_list[0] is 0:
+        if day_list[0] is 0: 
+            mon_list.remove(0)
+            day_list.remove(0)
+            month_prev = mon_list[0]
+            day = day_list[0]
+            month = months[str(month_prev)]
+            date = f"{month} {day}, {year}"
+            return date
+        else:
+            mon_list.remove(0)
+            month_prev = mon_list[0]
+            month = months[str(month_prev)]
+            date = f"{month} {day_prev}, {year}"
+            return date 
+    else:
+        month = months[str(month_n)]
+        date = f"{month} {day_prev}, {year}"
+        return date
